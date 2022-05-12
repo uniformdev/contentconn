@@ -44,6 +44,7 @@ export default async function middleware(request: NextRequest) {
     headers: {
       ...response.headers,
       "Cache-Control": "no-store, must-revalidate",
+      "Content-Encoding": "br",
       Expires: "0",
     },
   });
