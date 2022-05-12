@@ -37,3 +37,5 @@ wrangler.toml
 
 # context manifest
 lib/context/manifest.json
+
+.env
