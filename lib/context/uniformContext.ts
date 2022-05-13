@@ -4,20 +4,19 @@ import {
   enableContextDevTools,
   ContextPlugin,
   TransitionDataStore,
+  enableDebugConsoleLogDrain,
   StorageCommands,
   VisitorData,
 } from "@uniformdev/context";
 import { NextPageContext } from "next";
 import manifest from "./manifest.json";
-import { enableGoogleGtagAnalytics } from '@uniformdev/context-gtag';
+import { enableGoogleGtagAnalytics } from "@uniformdev/context-gtag";
 import getConfig from "next/config";
 import { createClient, Client, Room, LiveObject } from "@liveblocks/client";
 import { nanoid } from "nanoid";
 
 const {
-  publicRuntimeConfig: {
-    gaTrackingId,
-  },
+  publicRuntimeConfig: { gaTrackingId },
 } = getConfig();
 
 class YoloTransitionStore extends TransitionDataStore {
@@ -112,7 +111,10 @@ class YoloTransitionStore extends TransitionDataStore {
 }
 
 export function createUniformContext(serverContext?: NextPageContext) {
-  const plugins: ContextPlugin[] = [enableContextDevTools()];
+  const plugins: ContextPlugin[] = [
+    enableDebugConsoleLogDrain("debug"),
+    enableContextDevTools(),
+  ];
 
   if (gaTrackingId) {
     plugins.push(enableGoogleGtagAnalytics());
@@ -122,7 +124,7 @@ export function createUniformContext(serverContext?: NextPageContext) {
     defaultConsent: true,
     manifest: manifest as ManifestV2,
     transitionStore: new YoloTransitionStore(),
-    plugins: plugins
+    plugins: plugins,
   });
 
   return context;

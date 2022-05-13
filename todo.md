@@ -1,0 +1,11 @@
+- [ ] Enable NESI + Vercel to remove flash
+- [ ] Build the remaining components for home page
+- [ ] QR code - personalize on first load + raffle - show "you win" if score is 5.
+- [ ] ? GEO personalization - hide "Why Should I Head to Austin for ContentCon?" if visiting from Austin.
+- [ ] CDP scenario
+    - page to simulate CDP profile from Clearbit mock
+- [ ] Plug in contentstack content
+- [ ] ? Display core web vitals on the page
+- [ ] Model talks in Contentstack, add Context app and use Algolia search for relevant content
+- [ ] Perf optimization - gotta be 100 across the board!
+- [ ] Merch store - bring the shopping experience parts from Machathon
